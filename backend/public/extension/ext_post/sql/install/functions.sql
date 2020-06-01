@@ -1,0 +1,25 @@
+
+DELIMITER $$
+
+DROP FUNCTION IF EXISTS `ucfirst`$$
+CREATE FUNCTION `ucfirst`(str_value VARCHAR(5000)) RETURNS VARCHAR(5000) CHARSET utf8
+    DETERMINISTIC
+BEGIN
+    RETURN CONCAT(UCASE(LEFT(str_value, 1)),SUBSTRING(str_value, 2));
+END$$
+
+DROP FUNCTION IF EXISTS `haversineDistance`$$
+CREATE FUNCTION `haversineDistance`(
+      lat1 FLOAT, lon1 FLOAT,
+      lat2 FLOAT, lon2 FLOAT
+   ) RETURNS FLOAT
+   NO SQL
+   DETERMINISTIC
+   COMMENT 'query provided by google'
+BEGIN
+  RETURN (3959 * ACOS(
+    COS(RADIANS(lat1)) * COS(RADIANS(lat2)) * COS(RADIANS(lon2) - RADIANS(lon1)) + SIN(RADIANS(lat1)) * SIN(RADIANS(lat2))
+  ));
+END$$
+
+DELIMITER ;

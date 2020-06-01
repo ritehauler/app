@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "date": "2018-06-02",
+    "time": "22:00",
+    "address": "123 6th St. Melbourne, FL 32904",
+    "status": "cancelled",
+    "orderId": "RH124",
+    "amount": "$200",
+    "card": "Visa"
+  },
+  {
+    "id": 2,
+    "date": "2018-06-08",
+    "time": "18:00",
+    "address": "234 6th St. Melbourne, FL 32904",
+    "status": "completed",
+    "orderId": "RH125",
+    "amount": "$300",
+    "card": "Visa"
+  },
+  {
+    "id": 3,
+    "date": "2018-06-09",
+    "time": "22:00",
+    "address": "514 6th St. Melbourne, FL 32904",
+    "status": "pending",
+    "orderId": "RH128",
+    "amount": "$700",
+    "card": "Visa"
+  },
+  {
+    "id": 4,
+    "date": "2018-06-12",
+    "time": "10:00",
+    "address": "563 6th St. Melbourne, FL 32904",
+    "status": "paymentRequired",
+    "orderId": "RH129",
+    "amount": "$100",
+    "card": "Visa"
+  },
+  {
+    "id": 5,
+    "date": "2018-06-02",
+    "time": "22:00",
+    "address": "123 6th St. Melbourne, FL 32904",
+    "status": "cancelled",
+    "orderId": "RH124",
+    "amount": "$200",
+    "card": "Visa"
+  },
+  {
+    "id": 6,
+    "date": "2018-06-08",
+    "time": "18:00",
+    "address": "234 6th St. Melbourne, FL 32904",
+    "status": "completed",
+    "orderId": "RH125",
+    "amount": "$300",
+    "card": "Visa"
+  }
+]

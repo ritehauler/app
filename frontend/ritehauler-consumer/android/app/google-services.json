@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "589813833864",
+    "firebase_url": "https://rite-hauler.firebaseio.com",
+    "project_id": "rite-hauler",
+    "storage_bucket": "rite-hauler.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589813833864:android:7c480d48c7ec8db2",
+        "android_client_info": {
+          "package_name": "com.ritehauler"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "589813833864-ak34aqv6ddennilk1lbqpvi7ph33vfm9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6I7Yk4pJmBFvrjjKHehTyPxkk3L2lOzI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

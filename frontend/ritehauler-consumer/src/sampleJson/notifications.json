@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "message": "Your Order #RH123 is completed. Please make the payment.",
+    "unread": 1,
+    "date": "2018:05:20 22:00:00"
+  },
+  {
+    "id": 2,
+    "message": "Your Driver is on his way to pick up your order #RH123.",
+    "unread": 0,
+    "date": "2018:05:19 18:00:00"
+  },
+  {
+    "id": 3,
+    "message": "Your Order #RH123 is completed. Please make the payment.",
+    "unread": 0,
+    "date": "2018:05:18 05:00:00"
+  },
+  {
+    "id": 4,
+    "message": "Your Order #RH123 is completed. Please make the payment.",
+    "unread": 0,
+    "date": "2018:05:12 11:00:00"
+  }
+]

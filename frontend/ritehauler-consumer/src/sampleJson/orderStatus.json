@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "Pending",
+    "key": "pending"
+  },
+  {
+    "id": 2,
+    "title": "Confirmed",
+    "key": "confirmed"
+  },
+  {
+    "id": 3,
+    "title": "Driver Arrived",
+    "key": "arrived"
+  },
+  {
+    "id": 4,
+    "title": "On the way",
+    "key": "on_the_way"
+  },
+  {
+    "id": 5,
+    "title": "Payment Required",
+    "key": "reached"
+  },
+  {
+    "id": 6,
+    "title": "Completed",
+    "key": "completed"
+  },
+  {
+    "id": 7,
+    "title": "Cancelled",
+    "key": "cancelled"
+  },
+  {
+    "id": 7,
+    "title": "Driver Cancelled",
+    "key": "driver_cancelled"
+  }
+]

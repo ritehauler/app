@@ -1,0 +1,71 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ritehaulerdriver">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+      android:name=".MainApplication"
+      android:label="@string/app_name"
+      android:icon="@mipmap/appicon"
+      android:allowBackup="false"
+      android:usesCleartextTraffic="true"
+      android:theme="@style/AppTheme">
+      
+      <activity
+        android:name=".MainActivity"
+        android:label="@string/app_name"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+        android:windowSoftInputMode="adjustResize"
+        android:launchMode="singleTop"
+        >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+      </activity>
+      <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+
+<!-- You will only need to add this meta-data tag, but make sure it's a child of application -->
+      <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="@string/google_maps_key"/>
+
+
+    <service android:name="io.invertase.firebase.messaging.RNFirebaseMessagingService">
+    <intent-filter>
+      <action android:name="com.google.firebase.MESSAGING_EVENT" />
+    </intent-filter>
+    </service>
+    <service android:name="io.invertase.firebase.messaging.RNFirebaseInstanceIdService">
+    <intent-filter>
+      <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+    </intent-filter>
+    </service>
+
+
+    <!-- Notification Icon and Channel setup-->
+
+     <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/notification_icon" />
+
+        <!-- Set color used with incoming notification messages. -->
+      <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/accent" />
+
+        <!-- firebaseDemo is custom channel is which is created in react native code -->
+      <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="ritehaulerdriver"/>
+
+      <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+    </application>
+
+</manifest>

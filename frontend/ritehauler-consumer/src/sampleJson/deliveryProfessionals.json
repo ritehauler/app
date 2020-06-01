@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "count": "1",
+    "ladingPrice": "$39.99",
+    "info":
+      "If you request only one delivery professional and you are moving any individual items weighting over 50 lbs you will be expected to assist the delivery professional to carry.",
+    "image": "deliveryProfessional1"
+  },
+  {
+    "id": 2,
+    "count": "2",
+    "ladingPrice": "$80.99",
+    "info":
+      "If you request two delivery professional, no need to assist the delivery professionals to carry.",
+    "image": "deliveryProfessional2"
+  }
+]

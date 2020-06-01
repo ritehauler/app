@@ -1,0 +1,45 @@
+
+CREATE TABLE IF NOT EXISTS `ext_post` (
+  `post_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `entity_type_extension_map_id` int(10) unsigned NOT NULL,
+  `actor_entity_id` bigint(20) unsigned NOT NULL,
+  `ref_post_id` bigint(20) unsigned DEFAULT NULL,
+  `post_type_id` tinyint(3) unsigned NOT NULL,
+  `title` varchar(150) DEFAULT NULL,
+  `search_term` varchar(150) DEFAULT NULL,
+  `content` longtext,
+  `data_packet` longtext,
+  `location` varchar(100) DEFAULT NULL,
+  `latitude` varchar(15) DEFAULT NULL,
+  `longitude` varchar(15) DEFAULT NULL,
+  `count_share` bigint(20) NOT NULL DEFAULT '0',
+  `count_view` bigint(20) NOT NULL DEFAULT '0',
+  `is_share_enabled` tinyint(1) NOT NULL DEFAULT '1',
+  `starting_at` timestamp NULL DEFAULT NULL,
+  `ending_at` timestamp NULL DEFAULT NULL,
+  `status` enum('inactive','active','baned') NOT NULL DEFAULT 'inactive',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`post_id`),
+  KEY `title` (`title`),
+  KEY `search_term` (`search_term`),
+  KEY `post_type_id` (`post_type_id`),
+  KEY `location` (`location`),
+  KEY `latitude` (`latitude`),
+  KEY `longitude` (`longitude`),
+  KEY `count_view` (`count_view`),
+  KEY `count_share` (`count_share`),
+  KEY `is_share_enabled` (`is_share_enabled`),
+  KEY `starting_at` (`starting_at`),
+  KEY `ending_at` (`ending_at`),
+  KEY `actor_entity_id` (`actor_entity_id`),
+  KEY `deleted_at` (`deleted_at`),
+  FULLTEXT KEY `content` (`content`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+insert  into `sys_history`(`identifier`,`plugin_identifier`,`notification_type`,`notify_entity`,`notify_target_entity`,`is_user_viewable`,`created_at`) values
+('post_add','{plugin_identifier}','none',0,0,0,'{wildcard_datetime}'),
+('post_update','{plugin_identifier}','none',0,0,0,'{wildcard_datetime}'),
+('post_delete','{plugin_identifier}','none',0,0,0,'{wildcard_datetime}');

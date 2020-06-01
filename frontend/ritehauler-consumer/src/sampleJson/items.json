@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "title": "Television",
+    "cartonName": "4ft Tall Pallet",
+    "width": "27",
+    "height": "39",
+    "length": "66",
+    "weight": "15",
+    "numberOfItems": "2",
+    "price": "200"
+  },
+  {
+    "id": 2,
+    "title": "Bed",
+    "cartonName": "7ft Tall Pallet",
+    "width": "54",
+    "height": "74",
+    "length": "14",
+    "weight": "50",
+    "numberOfItems": "6",
+    "price": "50"
+  },
+  {
+    "id": 3,
+    "title": "Stand for TV",
+    "cartonName": "2ft Square Box",
+    "width": "34",
+    "height": "46",
+    "length": "96",
+    "weight": "29",
+    "numberOfItems": "6",
+    "price": "30"
+  },
+  {
+    "id": 4,
+    "title": "Stand for TV",
+    "cartonName": "2ft Square Box",
+    "width": "34",
+    "height": "46",
+    "length": "52",
+    "weight": "29",
+    "numberOfItems": "6",
+    "price": "75"
+  }
+]

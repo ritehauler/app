@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "947272581254",
+    "firebase_url": "https://ritehaulerdriver.firebaseio.com",
+    "project_id": "ritehaulerdriver",
+    "storage_bucket": "ritehaulerdriver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947272581254:android:0c00b7ba5545d28d",
+        "android_client_info": {
+          "package_name": "com.ritehaulerdriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947272581254-spokg7gndcpets6o6p31095iio26frkq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwmiYFrS31gtK8R51HiNQ1vNuH57gVpK0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

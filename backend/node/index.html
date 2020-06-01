@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Node Tutorial</title>
+<!--<script src="//localhost:5000/socket.io/socket.io.js"></script>-->
+<script src="//74.208.8.145:5001/socket.io/socket.io.js"></script>
+<script src="../public/js/jquery.min.js"></script>
+</head>
+<script>
+//var socket = io.connect('//localhost:5000');
+var socket = io.connect('//74.208.8.145:5001');
+
+// on connection to server, ask for user's name with an anonymous callback
+socket.on('connect', function(){
+	// call the server-side function 'adduser' and send one parameter (value of prompt)
+	var new_user = prompt("What's your USER ID?");
+	if(isNaN(new_user) || parseInt(new_user) == 0) {
+		alert("Please enter proper USER ID");
+		return;
+	}
+	if(new_user != null) {
+		socket.emit('adduser', {user_id : new_user, user_name : new_user});
+		$('input[name="cur_user"]').val(new_user);
+	}
+	else {
+		// hide chat form
+		$('form[name="chat_form"]').hide();
+	}
+});
+
+// listener, whenever the server emits 'updatechat', this updates the chat body
+socket.on('updatechat', function (response_data) {
+	/*$('#conversation').append('<b>'+username + ':</b> ' + message + '<br>');
+	if(receivers) {
+		$('input[name="receivers"]').val(receivers);
+	}*/
+	// consider blank sender as server
+	if(response_data.sender_id == "") {
+		response_data.sender_id = "SERVER";
+	}
+	$('#conversation').append('<b>'+response_data.sender_id + ':</b> ' + response_data.message + '<br>');
+});
+
+// empty list when use is kicked
+socket.on('kick_user', function (response_data) {
+	$('#conversation').append('<b>You are kicked by server. Please refresh</b><br>');
+	$('#users').empty();
+});
+
+// listener, whenever the server emits 'updateusers', this updates the username list
+socket.on('updateusers', function(data) {
+	console.log("online_users", data);
+	$('#users').empty();
+	$.each(data, function(key, value) {
+		var html = "";
+		// if other user
+		if(value != $('input[name="cur_user"]').val()) {
+			html += '<div class="users"><a href="#" id="'+value+'">' + value + '</a></div>';
+		}
+		else {
+			html += '<div class="users">' + value + '</div>';
+		}
+		$('#users').append(html);
+		// unbind last
+		$('#users div a').unbind('click');
+		// bind a click
+		$('#users div a').click(function(e) {
+			e.preventDefault();
+			//alert(this.id);
+			$('input[name="receivers"]').val(this.id);
+		});
+	});
+});
+
+// on load of page
+$(function(){
+	// when the client clicks SEND
+	$('#datasend').click( function() {
+		var message = $('#data').val();
+		var receivers = $('input[name="receivers"]').val();
+		if($('input[name="receivers"]').val() == '' || users == $('input[name="cur_user"]').val()) {
+			alert('Please select user to chat');
+			return;
+		}
+		
+		$('#data').val('');
+		// tell server to execute 'sendchat' and send along one parameter
+		//users = users+','+$('input[name="cur_user"]').val();
+		receivers = $('input[name="receivers"]').val();
+		// send private msg
+		//socket.emit('sendchat', message, users, $('input[name="cur_user"]').val());
+		socket.emit('sendchat', { msg: message, receiver_id: receivers });
+	});
+	
+	
+	// when the client hits ENTER on their keyboard
+	$('#data').keypress(function(e) {
+		if(e.which == 13) {
+			$(this).blur();
+			$('#datasend').focus().click();
+		}
+	});
+	
+});
+
+</script>
+<div style="float:left;width:100px;border-right:1px solid black;height:300px;padding:10px;overflow:scroll-y;"><b>USER IDs</b>
+  <div id="users"></div>
+</div>
+<div style="float:left;width:300px;height:250px;overflow:scroll-y;padding:10px;">
+  <div id="conversation"></div>
+  <form name="chat_form" onSubmit="return false;">
+    <input id="data" style="width:200px;" />
+    <input type="button" id="datasend" value="send" />
+    <input type="hidden" name="receivers" value="" />
+    <input type="hidden" name="cur_user" value="" />
+  </form>
+</div>
+
+<body>
+</body>
+</html>

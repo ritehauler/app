@@ -1,0 +1,209 @@
+<?php
+/*
+ * References :
+ * Avoid case-sensitive urls (ref : https://moz.com/blog/11-best-practices-for-urls)
+ * Camel-case functions names (ref: joomla, magento)
+*/
+// Administrator
+// Administrator : Auth
+/*Route::controllers(array(
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+));
+Route::get(DIR_ADMIN, 'Auth\AuthController@getLogin');
+Route::post(DIR_ADMIN, 'Auth\AuthController@postLogin');
+Route::get(DIR_ADMIN.'logout', 'Auth\AuthController@getLogout');
+// Administrator : Passwords
+Route::get(DIR_ADMIN.'forgot/password', 'Auth\PasswordController@getEmail');
+Route::post(DIR_ADMIN.'forgot/password', 'Auth\PasswordController@postEmail');
+Route::get(DIR_ADMIN.'password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post(DIR_ADMIN.'password/reset', 'Auth\PasswordController@postReset');
+Route::get(DIR_ADMIN.'password', rtrim(ucfirst(DIR_ADMIN), '/').'\AdminController@getChangePassword');
+Route::post(DIR_ADMIN.'password', rtrim(ucfirst(DIR_ADMIN), '/').'\AdminController@postChangePassword');
+*/
+// Administrator : Core
+Route::get(DIR_ADMIN, rtrim(ucfirst(DIR_ADMIN), '/').'\DashboardController@index');
+Route::any(DIR_ADMIN.'login/', rtrim(ucfirst(DIR_ADMIN), '/').'\AdminController@login');
+Route::any(DIR_ADMIN.'logout/', rtrim(ucfirst(DIR_ADMIN), '/').'\AdminController@logout');
+Route::any(DIR_ADMIN.'forgot_password/', rtrim(ucfirst(DIR_ADMIN), '/').'\AdminController@forgotPassword');
+Route::any(DIR_ADMIN.'confirm_forgot/', rtrim(ucfirst(DIR_ADMIN), '/').'\AdminController@confirmForgot');
+
+// master role routes
+Route::group(['middleware' => 'admin.auth:master', "prefix" => DIR_ADMIN], function () {
+    // Administrator : Group
+    Route::any('admin_group/', rtrim(ucfirst(DIR_ADMIN), '/') . '\AdminGroupController@index');
+    Route::any('admin_group/add', rtrim(ucfirst(DIR_ADMIN), '/') . '\AdminGroupController@add');
+    Route::any('admin_group/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/') . '\AdminGroupController@update');
+});
+
+Route::group(['middleware' => 'admin.auth', "prefix" => DIR_ADMIN], function () {
+
+    // Administrator : Dashboard
+    Route::get('dashboard/', rtrim(ucfirst(DIR_ADMIN), '/') . '\DashboardController@index');
+
+    Route::any('change_password/', rtrim(ucfirst(DIR_ADMIN), '/').'\AdminController@changePassword');
+
+    // Administrator : Setting
+    Route::any('setting/', rtrim(ucfirst(DIR_ADMIN), '/').'\SettingController@index');
+    Route::any('setting/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\SettingController@ajaxListing');
+    Route::any('setting/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\SettingController@update');
+    Route::any('setting/logo_browser', rtrim(ucfirst(DIR_ADMIN), '/').'\SettingController@logoBrowser');
+
+    // Administrator : Maintainance : Disabilities
+    Route::any('disability/', rtrim(ucfirst(DIR_ADMIN), '/') . '\DisabilityController@index');
+    Route::any('disability/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/') . '\DisabilityController@ajaxListing');
+    Route::any('disability/add', rtrim(ucfirst(DIR_ADMIN), '/') . '\DisabilityController@add');
+    Route::any('disability/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/') . '\DisabilityController@update');
+
+    // Administrator : Maintainance : PackageLimit
+    Route::any('package/', rtrim(ucfirst(DIR_ADMIN), '/').'\PackageController@index');
+    Route::any('package/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\PackageController@ajaxListing');
+    //Route::any('package/add', rtrim(ucfirst(DIR_ADMIN), '/').'\PackageController@add');
+    Route::any('package/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\PackageController@update');
+    // Administrator : CMS Pages
+    Route::any('page/', rtrim(ucfirst(DIR_ADMIN), '/').'\PageController@index');
+    Route::any('page/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\PageController@ajaxListing');
+    Route::any('page/add', rtrim(ucfirst(DIR_ADMIN), '/').'\PageController@add');
+    Route::any('page/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\PageController@update');
+
+    // Administrator : Widget
+    Route::any('admin_widget/', rtrim(ucfirst(DIR_ADMIN), '/').'\WidgetController@index');
+    Route::any('admin_widget/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\WidgetController@ajaxListing');
+    Route::any('admin_widget/add', rtrim(ucfirst(DIR_ADMIN), '/').'\WidgetController@add');
+    Route::any('admin_widget/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\WidgetController@update');
+    Route::any('admin_widget/preview/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\WidgetController@preview');
+    Route::any('parse_widget/{type}/{identifier}', rtrim(ucfirst(DIR_ADMIN), '/').'\WidgetController@parse');
+    // Administrator : Admin
+    Route::any('admin/', rtrim(ucfirst(DIR_ADMIN), '/').'\AdminController@index');
+    Route::any('admin/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\AdminController@ajaxListing');
+    Route::any('admin/add', rtrim(ucfirst(DIR_ADMIN), '/').'\AdminController@add');
+    Route::any('admin/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\AdminController@update');
+    // Administrator : User
+    Route::any('user/', rtrim(ucfirst(DIR_ADMIN), '/').'\UserController@index');
+    Route::any('user/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\UserController@ajaxListing');
+    //Route::any('user/add', rtrim(ucfirst(DIR_ADMIN), '/').'\UserController@add');
+    Route::any('user/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\UserController@update');
+    Route::any('user/validate_notification', rtrim(ucfirst(DIR_ADMIN), '/').'\UserController@validateNotification');
+    Route::any('user/send_notification', rtrim(ucfirst(DIR_ADMIN), '/').'\UserController@sendNotification');
+    Route::any('user/ajax_user_graph', rtrim(ucfirst(DIR_ADMIN), '/').'\UserController@ajaxUserGraph');
+
+
+    // Administrator : Maintainance : Notification
+    Route::any('history_notification/', rtrim(ucfirst(DIR_ADMIN), '/').'\HistoryNotificationController@index');
+    Route::any('history_notification/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\HistoryNotificationController@ajaxListing');
+    //Route::any('history_notification/add', rtrim(ucfirst(DIR_ADMIN), '/').'\HistoryNotificationController@add');
+    Route::any('history_notification/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\HistoryNotificationController@update');
+
+
+    // Administrator : Email Templates
+    Route::any('email_template/', rtrim(ucfirst(DIR_ADMIN), '/').'\EmailTemplateController@index');
+    Route::any('email_template/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\EmailTemplateController@ajaxListing');
+    //Route::any('email_template/add', rtrim(ucfirst(DIR_ADMIN), '/').'\EmailTemplateController@add');
+    Route::any('email_template/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\EmailTemplateController@update');
+
+    // Administrator : Maintainance : Banner Ads
+    Route::any('banner_ad/', rtrim(ucfirst(DIR_ADMIN), '/').'\BannerAdController@index');
+    Route::any('banner_ad/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\BannerAdController@ajaxListing');
+    Route::any('banner_ad/add', rtrim(ucfirst(DIR_ADMIN), '/').'\BannerAdController@add');
+    Route::any('banner_ad/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\BannerAdController@update');
+    Route::any('banner_ad/image_browser', rtrim(ucfirst(DIR_ADMIN), '/').'\BannerAdController@imageBrowser');
+    // Administrator : Maintainance : Shop Managment
+    Route::any('virtual_item/', rtrim(ucfirst(DIR_ADMIN), '/').'\VirtualItemController@index');
+    Route::any('virtual_item/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\VirtualItemController@ajaxListing');
+    Route::any('virtual_item/add', rtrim(ucfirst(DIR_ADMIN), '/').'\VirtualItemController@add');
+    Route::any('virtual_item/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\VirtualItemController@update');
+    Route::any('virtual_item/image_browser', rtrim(ucfirst(DIR_ADMIN), '/').'\VirtualItemController@imageBrowser');
+    // Administrator : Query Interface
+    Route::any('query_interface/', rtrim(ucfirst(DIR_ADMIN), '/').'\QueryController@index');
+    // Administrator : Maintainance : Banner Ads
+    Route::any('flurry/', rtrim(ucfirst(DIR_ADMIN), '/').'\FlurryController@index');
+    // Administrator : Maintainance : Asset
+    Route::any('asset/', rtrim(ucfirst(DIR_ADMIN), '/').'\AssetController@index');
+    Route::any('asset/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\AssetController@ajaxListing');
+    Route::any('asset/add', rtrim(ucfirst(DIR_ADMIN), '/').'\AssetController@add');
+    Route::any('asset/image_browser', rtrim(ucfirst(DIR_ADMIN), '/').'\AssetController@imageBrowser');
+    Route::any('asset/raw', rtrim(ucfirst(DIR_ADMIN), '/').'\AssetController@raw');
+    // Administrator : Sync-Engine Resource
+    Route::any('se_resource/', rtrim(ucfirst(DIR_ADMIN), '/').'\SEResourceController@index');
+    Route::any('se_resource/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\SEResourceController@ajaxListing');
+    Route::any('se_resource/add', rtrim(ucfirst(DIR_ADMIN), '/').'\SEResourceController@add');
+    Route::any('se_resource/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\SEResourceController@update');
+    Route::any('se_resource/file_browser', rtrim(ucfirst(DIR_ADMIN), '/').'\SEResourceController@fileBrowser');
+    // Administrator : Game : Configuration
+    Route::any('game_config/', rtrim(ucfirst(DIR_ADMIN), '/').'\GameConfigController@index');
+    // Administrator : Game : Level
+    Route::any('level/', rtrim(ucfirst(DIR_ADMIN), '/').'\LevelController@index');
+    Route::any('level/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\LevelController@ajaxListing');
+    Route::any('level/add', rtrim(ucfirst(DIR_ADMIN), '/').'\LevelController@add');
+    Route::any('level/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\LevelController@update');
+    // Administrator : Game : Achievement
+    Route::any('achievement/', rtrim(ucfirst(DIR_ADMIN), '/').'\AchievementController@index');
+    Route::any('achievement/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\AchievementController@ajaxListing');
+    Route::any('achievement/add', rtrim(ucfirst(DIR_ADMIN), '/').'\AchievementController@add');
+    Route::any('achievement/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\AchievementController@update');
+    // Administrator : Q&A : Questions
+    Route::any('qa_content/', rtrim(ucfirst(DIR_ADMIN), '/').'\QAContentController@index');
+    Route::any('qa_content/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\QAContentController@ajaxListing');
+    Route::any('qa_content/add', rtrim(ucfirst(DIR_ADMIN), '/').'\QAContentController@add');
+    Route::any('qa_content/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\QAContentController@update');
+    Route::any('qa_content/image_browser', rtrim(ucfirst(DIR_ADMIN), '/').'\QAContentController@imageBrowser');
+
+    // Administrator : Entity Framework : Entity
+    Route::any('ef_entity/', rtrim(ucfirst(DIR_ADMIN), '/').'\EFEntityController@index');
+    Route::any('ef_entity/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\EFEntityController@ajaxListing');
+    Route::any('ef_entity/add', rtrim(ucfirst(DIR_ADMIN), '/').'\EFEntityController@add');
+    Route::any('ef_entity/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\EFEntityController@update');
+    // Administrator : Queue Upload
+    Route::any('qa_content/queue_upload', rtrim(ucfirst(DIR_ADMIN), '/').'\QAContentController@queueUpload');
+    // Administrator : Payment Conf
+    Route::any('payment_conf/', rtrim(ucfirst(DIR_ADMIN), '/').'\PaymentConfController@index');
+    Route::any('payment_conf/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\PaymentConfController@ajaxListing');
+    Route::any('payment_conf/add', rtrim(ucfirst(DIR_ADMIN), '/').'\PaymentConfController@add');
+    Route::any('payment_conf/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\PaymentConfController@update');
+    // Administrator : Q&A : Content
+    Route::any('qa_questions/', rtrim(ucfirst(DIR_ADMIN), '/').'\QAQuestionsController@index');
+    Route::any('qa_questions/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\QAQuestionsController@ajaxListing');
+    Route::any('qa_questions/add', rtrim(ucfirst(DIR_ADMIN), '/').'\QAQuestionsController@add');
+    Route::any('qa_questions/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\QAQuestionsController@update');
+    Route::any('qa_questions/image_browser', rtrim(ucfirst(DIR_ADMIN), '/').'\QAQuestionsController@imageBrowser');
+    Route::any('qa_questions/init_import', rtrim(ucfirst(DIR_ADMIN), '/').'\QAQuestionsController@initImport');
+    Route::any('qa_questions/process_import', rtrim(ucfirst(DIR_ADMIN), '/').'\QAQuestionsController@processImport');
+
+    // Administrator : Maintenance : OF Configuration
+    Route::any('of_config/', rtrim(ucfirst(DIR_ADMIN), '/').'\OFConfigController@index');
+
+    // Administrator : Maintenance : Twilio Configuration
+    Route::any('twilio_config/', rtrim(ucfirst(DIR_ADMIN), '/').'\TwilioConfigController@index');
+
+    // Administrator : Maintenance : Facebook Configuration
+    Route::any('facebook_config/', rtrim(ucfirst(DIR_ADMIN), '/').'\FacebookConfigController@index');
+
+
+    // Administrator : Q&A : Content
+    Route::any('qa_content/', rtrim(ucfirst(DIR_ADMIN), '/').'\QAContentController@index');
+    Route::any('qa_content/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\QAContentController@ajaxListing');
+    Route::any('qa_content/add', rtrim(ucfirst(DIR_ADMIN), '/').'\QAContentController@add');
+    Route::any('qa_content/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\QAContentController@update');
+    Route::any('qa_content/image_browser', rtrim(ucfirst(DIR_ADMIN), '/').'\QAContentController@imageBrowser');
+    // Administrator : Queue Upload
+    Route::any('qa_content/queue_upload', rtrim(ucfirst(DIR_ADMIN), '/').'\QAContentController@queueUpload');
+
+    // Administrator : Q&A : Tag
+    Route::any('tag/', rtrim(ucfirst(DIR_ADMIN), '/').'\TagController@index');
+    Route::any('tag/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\TagController@ajaxListing');
+    Route::any('tag/add', rtrim(ucfirst(DIR_ADMIN), '/').'\TagController@add');
+    Route::any('tag/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\TagController@update');
+    Route::any('tag/image_browser', rtrim(ucfirst(DIR_ADMIN), '/').'\TagController@imageBrowser');
+    // Administrator : Queue UploadTagController@imageBrowser
+    Route::any('tag/queue_upload', rtrim(ucfirst(DIR_ADMIN), '/').'\TagController@queueUpload');
+
+    // Administrator : Q&A : Bag
+    Route::any('bag/', rtrim(ucfirst(DIR_ADMIN), '/').'\BagController@index');
+    Route::any('bag/ajax/listing', rtrim(ucfirst(DIR_ADMIN), '/').'\BagController@ajaxListing');
+    Route::any('bag/add', rtrim(ucfirst(DIR_ADMIN), '/').'\BagController@add');
+    Route::any('bag/update/{id}', rtrim(ucfirst(DIR_ADMIN), '/').'\BagController@update');
+    Route::any('bag/image_browser', rtrim(ucfirst(DIR_ADMIN), '/').'\BagController@imageBrowser');
+    // Administrator : Queue Upload
+    Route::any('bag/queue_upload', rtrim(ucfirst(DIR_ADMIN), '/').'\BagController@queueUpload');
+
+});

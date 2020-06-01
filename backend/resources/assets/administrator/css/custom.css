@@ -1,0 +1,164 @@
+.nopadding{padding-left:0 !important; padding-right:0 !important;}
+/*.nav-main a{color:#fff !important; font-size:16px;}
+#sidebar{background-color:#5fc78a;}
+.nav-main a > i{color:#fff !important;}
+.nav-main li.open > a.nav-submenu{background-color:#398056;}
+.nav-main li.open > ul > li{background-color:#34995e;}
+.nav-main li > a.active, .nav-main li > a.active:hover, .nav-main a:hover, .nav-main ul a:hover{background-color:#398056; color:#fff;}
+.nav-main a.nav-submenu::before{color:#fff;}*/
+
+.logo-custom span img{width:100%;}
+.logo-custom{width:90px !important; display:block !important; float:none; margin:0 auto;}
+.custom-bg-logo{background:#2c343f;}
+
+ .table-responsive { overflow: auto; overflow-y: hidden; }
+ .table-responsive form { margin: 0; padding: 1em; white-space: nowrap; }
+ 
+ .btn{display:block;}
+
+
+/*Custom css start*/
+.label {
+	font-size:100%;
+	letter-spacing:2px;
+}
+
+.hdr-search .si-magnifier:before {
+    font-size: 17px;
+    color: gray;
+}
+.side-header .text-white {
+    text-align: center;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+.content {
+	-webkit-box-shadow: inset 0 15px 15px -15px rgba(0,0,0,0.2);
+    -moz-box-shadow: inset 0 15px 15px -15px rgba(0,0,0,0.2);
+    box-shadow: inset 0 15px 15px -15px rgba(0,0,0,0.2);
+}
+.content.bg-gray-lighter {
+	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow:none;
+	color:#000;
+}
+
+.nav-main a.nav-submenu::before{content:"\f105";}
+.pad-40 {
+	padding:40px 35px 20px;
+}
+
+
+.side-scroll .logo-sm {
+	display:none;
+}
+.sidebar-mini .logo-sm {
+	display: block !important;
+}
+.sidebar-mini .logo-lg {
+	display: none !important;
+}
+.btm-btn {
+    border-top: 1px solid #e6e6e6;
+}
+.btnPad-10 {
+    padding: 10px 0;
+}
+.bor-left {
+    border-left: 1px solid #e6e6e6;
+}
+.game-box-img {
+    width: 100%;
+    height: 220px;
+}
+
+.donut-percent-box {
+    text-align: left;
+    background: #f7f7f7;
+    padding: 6px 15px 16px;
+}
+.donut-percent-box input[type="color"] {
+    padding: 0px !important;
+    border: none;
+    background: none;
+    width: 25px;
+    height: 27px;
+	float:left;
+	    margin-right: 5px;
+}
+.donut-percent-group {
+    padding-top: 10px;
+    font-weight: bold;
+}
+.donut-per-info-box {
+    width: 180px;
+    padding-top: 3px;
+}
+.donut-per-label {
+    font-weight: 400;
+}
+
+.float-right{float:right;}
+
+/*** Search Reporting ***/
+/* .s-reporting .col-sm-3 h4.block-title{
+	padding: 15px 20px;
+	color:#fff;
+}
+.s-reporting .col-sm-3 .block-header .block-title {
+	color:#231f20;
+}
+ */
+
+/*Custom css end*/
+
+
+/* SK css start*/
+.dataTables_empty {
+	text-align:center;
+}
+.form-material span.ui-spinner {
+	margin-top:6px;
+	width:100%;
+}
+.form-material span.ui-widget-content {
+	border:1px solid #e6e6e6;
+	border-left : none;
+	border-top : none;
+}
+.form-material span.ui-corner-all, .form-material a.ui-corner-tr, .form-material a.ui-corner-br {
+	border-radius : 0px;
+}
+/*.dataTables_processing { background-color:rgba(0,0,0,0.05) !important; }
+/* SK css end*/
+
+
+/* Saddam's CSS Starts here */
+
+.dataTables_processing {
+    background-color:rgba(51,61,74,0.9) !important;
+    color: #fff;
+    font-size: 18px !important;
+    box-shadow: 0px 0px 20px 0px #000;
+}
+
+/*.dataTables_wrapper{
+    overflow-x: auto !important;
+}*/
+
+.zero-padding{
+    padding-right:0px !important;
+    padding-left: 0px !important;
+}
+
+.common-inline-block{
+    display:inline-block !important;
+}
+
+.elfinder{
+    z-index: 9999 !important;
+}
+
+/* Saddam's CSS Ends here */

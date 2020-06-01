@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RiteHaulerDriver</string>
+    <string name="map_debug_key">AIzaSyCpTSGvrXJc1KeJaJFe_l_wv7_cs3wyaw4</string>
+    <string name="google_maps_key">AIzaSyBeM6ef-ZWQe5HPFaLZ9Uamdvjx7a7xHDs</string>
+</resources>

@@ -1,0 +1,37 @@
+Create API from existing entries :
+----------------------------------
+INSERT INTO api_method (`type`,`name`,uri,description,is_active)
+(SELECT `type`,`name`,uri,description,is_active FROM api_method WHERE api_method_id >= 52);
+
+INSERT INTO api_method (`type`,`name`,uri,description,is_active)
+(SELECT `type`,`name`,uri,description,is_active FROM api_method WHERE  api_method_id BETWEEN 59 AND 66);
+
+
+Rename method data :
+----------------------
+UPDATE api_method SET
+`name` = REPLACE(`name`,"Role","Permission"),
+`uri` = REPLACE (uri,"roles","permissions"),
+description = REPLACE(description,"Role","Permission")
+WHERE api_method_id >= 77;
+
+
+
+Create API fields from existing entries :
+-----------------------------------------
+INSERT INTO api_method_field (method_uri,request_type,`type`,data_type,`name`,description,is_active,`order`)
+(SELECT method_uri,request_type,`type`,data_type,`name`,description,is_active,`order` FROM api_method_field WHERE api_method_field_id >= 205)
+
+
+Renaming method fields data :
+-----------------------------
+UPDATE api_method_field SET
+method_uri = REPLACE(method_uri,"system/modules","system/roles"),
+`name` = REPLACE(`name`,"module_id","role_id"),
+`description` = REPLACE(`description`,"Module ID","Role ID")
+WHERE api_method_field_id >= 306;
+
+
+Deleting wrong entries :
+------------------------
+DELETE FROM api_method_field WHERE api_method_field_id >= 235;

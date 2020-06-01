@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Light truck",
+    "weightInPounds": "6,001–10,000",
+    "weightInKg": "2,722–4,536",
+    "baseFee": "$10.00",
+    "perMin": "$0.99",
+    "minimum": "$39.99",
+    "estCost": "$70.50 - $98.50",
+    "image": "trk1",
+    "tabImage": "trkTab1"
+  },
+  {
+    "id": 2,
+    "title": "Light truck 2",
+    "weightInPounds": "8,001–10,000",
+    "weightInKg": "3,722–4,536",
+    "baseFee": "$20.00",
+    "perMin": "$1.99",
+    "minimum": "$59.99",
+    "estCost": "$90.50 - $98.50",
+    "image": "trk2",
+    "tabImage": "trkTab2"
+  },
+  {
+    "id": 3,
+    "title": "Heavy truck ",
+    "weightInPounds": "9,001–12,000",
+    "weightInKg": "5,722–9,536",
+    "baseFee": "$30.00",
+    "perMin": "$2.99",
+    "minimum": "$89.99",
+    "estCost": "$90.50 - $150.50",
+    "image": "trk3",
+    "tabImage": "trkTab3"
+  },
+  {
+    "id": 4,
+    "title": "Heavy truck 2",
+    "weightInPounds": "11,001–15,000",
+    "weightInKg": "7,722–9,536",
+    "baseFee": "$50.00",
+    "perMin": "$3.99",
+    "minimum": "$99.99",
+    "estCost": "$99.50 - $180.50",
+    "image": "trk4",
+    "tabImage": "trkTab4"
+  }
+]

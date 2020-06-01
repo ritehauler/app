@@ -1,0 +1,12 @@
+// Review Notes :
+-----------------
+- EntityController.php : Why do we need APICurl class when we already had Library\Curl.php
+- EntityController.php : line 602 : Which naming conventions are we following? PSR ? (we decided to have camel-case in controllers/models/libs and snake-case in template files.
+- EntityController.php : line 562 : method names should follow camel-case (we have been trying to follow this for all new files that code, since cubix2)
+- EntityController.php : line 38 : Why are we using hard-coded values for path? use DIR_SYSTEM from config.php
+- EntityController.php : line 61 : use "__internalCall" method (from base Controller.php) instead of "apiPostRequest" when calling our own APIs.
+- ApiCurl.php : Why API credentials are hard-coded? Why not we use constants from config.php (API_ACCESS_EMAIL & API_ACCESS_PASS) ? We shall rename API_ACCESS_EMAIL to API_ACCESS_USER and use it.
+- All Controllers : __construct() : use "\Route::current()->getParameter('param_identifier')" instead of "Request()->segment(xx)". We dont wanna make changes to our code upon any directory changes to our system. Save efforts.
+- All Controllers : ajaxListing() : "$total_records" variable is not defined in most of controllers
+- Routes\Frontend.php : line 10 : replace "postData" with "post-data" OR  "post_data" (choose one standard). There shall be no came-cases in URLs (best practice for SEO)
+- resources/views/backend/entity_attribute/index.blade.php : line 151 : use "<?php echo" instead of "<?=". We dont get access to hosting providers to allow short php tags, even if we do, lets not use it in order to save debugging time due to un-allowed short tags configuration.

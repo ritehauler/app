@@ -1,0 +1,60 @@
+/*Date picker customization */
+.datepicker{
+	z-index:100000;
+}
+.datepicker--nav{
+	width:100%;
+	border:none;
+	color:#757575;
+	font-size:12px;
+}
+.datepicker-inline .datepicker{
+	border: none;
+    font-size: 10px;
+    font-weight: 500;
+    width: 230px;
+}
+.datepicker--nav-title{
+    width: 80%;
+    -webkit-justify-content: left;
+    justify-content: left;
+}
+.datepicker--nav-action{
+	border-radius: 30px;
+}
+.datepicker--days-names{
+	margin: 0px;
+	margin-bottom: 10px;
+}
+.datepicker--day-name{
+	color: #ff7f5d;
+	font-size: 11px;
+}
+
+.datepicker--cell.-selected-{
+	background: #ff7f5d;
+    border-radius: 20px;
+}
+
+.datepicker--cell.-selected-.-focus-{
+	background: #ff9b81;
+}
+
+
+.datepicker--cell.-focus-{
+	border-radius: 20px
+}
+
+.datepicker--cell-day.-other-month-:hover, .datepicker--cell-year.-other-decade-:hover{
+	border-radius: 20px
+}
+
+.datepicker--cell.-current-{
+    color: #ff7f5d;
+    background: #ffede9;
+    border-radius: 20px;
+}
+
+.datepicker--cell.-selected-.-current- {
+    background: #ff7f5d;
+}

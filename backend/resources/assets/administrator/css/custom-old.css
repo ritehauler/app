@@ -1,0 +1,8 @@
+.nopadding{padding-left:0 !important; padding-right:0 !important;}
+.nav-main a{color:#fff !important; font-size:16px;}
+#sidebar{background-color:#5fc78a;}
+.nav-main a > i{color:#fff !important;}
+.nav-main li.open > a.nav-submenu{background-color:#398056;}
+.nav-main li.open > ul > li{background-color:#34995e;}
+.nav-main li > a.active, .nav-main li > a.active:hover, .nav-main a:hover, .nav-main ul a:hover{background-color:#398056; color:#fff;}
+.nav-main a.nav-submenu::before{color:#fff;}
