@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>RiteHaulerDriver</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>tel</string>
+	</array>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<true/>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<false/>
+	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Our app does not request this permission or utilize this functionality but it is included in our info.plist since our app utilizes the react-native-permissions library, which references this permission in its code.</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Our app does not request this permission or utilize this functionality but it is included in our info.plist since our app utilizes the react-native-permissions library, which references this permission in its code.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Our app does not request this permission or utilize this functionality but it is included in our info.plist since our app utilizes the react-native-permissions library, which references this permission in its code.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Rite Hauler needs your location to show nearby clients who needs delivery services.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Rite Hauler needs your location to show nearby clients who needs delivery services.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Rite Hauler needs your location to show nearby clients who needs delivery services.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Our app does not request this permission or utilize this functionality but it is included in our info.plist since our app utilizes the react-native-permissions library, which references this permission in its code.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Would like to save photos to your photo gallery</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We want access to your photo gallery so let you select photos of deliverable items</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Our app does not request this permission or utilize this functionality but it is included in our info.plist since our app utilizes the react-native-permissions library, which references this permission in its code.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Roboto-Regular.ttf</string>
+		<string>SFProDisplay-Black.otf</string>
+		<string>SFProDisplay-BlackItalic.otf</string>
+		<string>SFProDisplay-Bold.otf</string>
+		<string>SFProDisplay-BoldItalic.otf</string>
+		<string>SFProDisplay-Heavy.otf</string>
+		<string>SFProDisplay-HeavyItalic.otf</string>
+		<string>SFProDisplay-Italic.otf</string>
+		<string>SFUIDisplay-Thin.otf</string>
+		<string>SFProDisplay-Light.otf</string>
+		<string>SFProDisplay-LightItalic.otf</string>
+		<string>SFProDisplay-Medium.otf</string>
+		<string>SFProDisplay-MeidumItalic.otf</string>
+		<string>SFProDisplay-Regular.otf</string>
+		<string>SFProDisplay-Semibold.otf</string>
+		<string>SFProDisplay-SemiboldItalic.otf</string>
+		<string>SFProDisplay-Thin.otf</string>
+		<string>SFProDisplay-ThinItalic.otf</string>
+		<string>SFProDisplay-Ultralight.otf</string>
+		<string>SFProDisplay-UltralightItalic.otf</string>
+		<string>SFProText-Bold.otf</string>
+		<string>SFProText-BoldItalic.otf</string>
+		<string>SFProText-Heavy.otf</string>
+		<string>SFProText-HeavyItalic.otf</string>
+		<string>SFProText-Italic.otf</string>
+		<string>SFProText-Light.otf</string>
+		<string>SFProText-LightItalic.otf</string>
+		<string>SFProText-Medium.otf</string>
+		<string>SFProText-MediumItalic.otf</string>
+		<string>SFProText-Regular.otf</string>
+		<string>SFProText-Semibold.otf</string>
+		<string>SFProText-SemiboldItalic.otf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+		<string>remote-notification</string>
+	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+</dict>
+</plist>
