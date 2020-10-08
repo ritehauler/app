@@ -1,0 +1,4 @@
+#Mon Sep 28 19:06:38 IST 2020
+base.0=/Users/techdodles/Desktop/mansi/PROJECTS/22-09-20final Rite--master/android/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
